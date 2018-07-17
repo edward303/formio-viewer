@@ -5,7 +5,90 @@
     <title></title>
     <meta name="viewport" content="width=device-width">
     <script id="header" type="text/template"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" id="form-title"><img src="assets/logo.png" style="display: inline-block; height: 1.3em;" /> Form Viewer</a></div></div></nav></script>
-    <script id="branding" type="text/template"><hr /><h4 class="text-center text-muted">powered by <img src="assets/logo.png" style="height: 1.2em;" /></h4></script>
+    <script id="branding" type="text/template">
+      <div id="servicensw_embed_footer">
+        <footer class="page-footer">
+          <footer class="global-footer footer block__secondary grid__12-col grid--break-col" role="contentinfo">
+            <div class="panel-pane pane-block pane-snsw-global-footer-footer-buttons">
+              <div class="pane-content">
+                <div class="footer__top">
+                  <ul class="footer-btn footer__buttons">
+                    <li class="footer-btn-news">
+                      <a class="footer__button-news" href="https://www.service.nsw.gov.au/news"><span>News &amp; Updates</span></a>
+                    </li>
+                    <li class="footer-btn-languages">
+                      <a class="footer__button-languages"
+                         href="https://www.service.nsw.gov.au/welcome-service-nsw"><span>Other Languages</span></a>
+                    </li>
+                    <li class="footer-btn-apps">
+                      <a class="footer__button-apps" href="https://www.service.nsw.gov.au/mobile-app"><span>Mobile Apps</span></a>
+                    </li>
+                    <li class="footer-btn-contact">
+                      <a class="footer__button-contact" href="https://www.service.nsw.gov.au/contact-us"
+                         id="contact-link"><span>Contact Us<br>13 77 88</span></a>
+                    </li>
+                  </ul>
+                </div>
+      
+              </div>
+            </div>
+            <div class="panel-pane pane-block pane-menu-site-info-links drop-menu footer__nav js-drop-menu-drupal drop-menu--closed">
+              <h2 class="pane-title drop-menu__title" role="heading" aria-level="2">
+                <span class="drop-menu__title-handle"  >Expand </span >
+                  Website Information
+                </h2>
+              <div class="pane-content drop-menu__content">
+                <div class="nav--footer">
+                  <ul class="menu">
+                    <li class="first leaf"><a
+                      href="https://www.service.nsw.gov.au/accessibility">Accessibility</a></li>
+                    <li class="leaf"><a href="https://www.service.nsw.gov.au/privacy">Privacy</a></li>
+                    <li class="leaf"><a href="https://www.service.nsw.gov.au/terms-use"
+                                        title="These are the Terms of use for digital services">Terms of use</a>
+                    </li>
+                    <li class="leaf"><a href="https://www.service.nsw.gov.au/copyright-and-disclaimer"
+                                        title="Copyright information about this website">Copyright and
+                      disclaimer</a></li>
+                    <li class="leaf"><a href="https://www.service.nsw.gov.au/accessing-information">Accessing
+                      information</a></li>
+                    <li class="last leaf"><a href="https://www.service.nsw.gov.au/sitemap"
+                                             title="Service NSW sitemap">Sitemap</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="panel-pane pane-block pane-snsw-social-social-links">
+              <div class="pane-content">
+                <div class="footer__social-links">
+                  <ul class="social-links">
+                    <li>
+                      <a class="social-links__nswgov" href="http://nsw.gov.au">nsw.gov.au</a>
+                    </li>
+                    <li>
+                      <a class="social-links__facebook"
+                         href="https://www.facebook.com/pages/Service-NSW/543365579058368">Facebook</a>
+                    </li>
+                    <li>
+                      <a class="social-links__twitter" href="https://twitter.com/ServiceNSW">Twitter</a>
+                    </li>
+                    <li>
+                      <a class="social-links__linkedin" href="https://au.linkedin.com/company/servicensw">Linkedin</a>
+                    </li>
+                    <li>
+                      <a class="social-links__instagram" href="http://instagram.com/servicensw?ref=badge">Instagram</a>
+                    </li>
+                    <li>
+                      <a class="social-links__youtube"
+                         href="https://www.youtube.com/channel/UCpFpdQqKphbZ5xiLV0nuwdQ">Youtube</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </footer>
+      </div>
+    </script>
     <script id="srcform" type="text/template"><div class="well src-form"><div class="form-group"><label for="formsrc">Form Embed URL</label><input type="text" class="form-control" id="formsrc" name="formsrc" placeholder="https://examples.form.io/example"></div><button type="submit" class="btn btn-primary" id="setsrc"><span class="glyphicon glyphicon-check" id="btnicon"></span> Show Form</button></div></script>
     <script id="loader" type="text/template"><div class="loader-wrapper"><div class="loader text-center"></div></div></script>
     <script src="lib/formiojs/formio.form.min.js"></script>
@@ -79,7 +162,9 @@
       }
     </script>
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cloud.typography.com/6161932/713846/css/fonts.css">
     <link rel="stylesheet" href="lib/formiojs/formio.form.min.css" />
+    <link rel="stylesheet" href="//styleguide.service.nsw.gov.au/latest/css/snsw.css">
     <style type="text/css">
         .page-break-after {
             page-break-after: always;
