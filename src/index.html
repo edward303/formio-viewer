@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title></title>
   <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script id="header" type="text/template">
     <header class="hidden-print header block__secondary grid__12-col grid--break-col">
       <div class="header__top">
@@ -417,95 +418,98 @@
           document.body.className = bodyClass;
         }
       </script>
-    <div id="preform"></div>
-    <div id="formio"></div>
-    <script type="text/javascript">
-      window.seamless.connect({
-        container: 'div.main',
-        allowStyleInjection: true
-      });
-      var mainElem = document.getElementById('main');
-      var preFormElem = document.getElementById('preform');
-      var loader = document.getElementById('loader');
-      var formioElem = document.getElementById("formio");
-      var titleElem = document.getElementById("form-title");
-      preFormElem.innerHTML = loader.innerHTML;
-  
-      window.setForm = function (form, submission, options) {
-        preFormElem.innerHTML = loader.innerHTML;
-        options = options || {};
-        if (!form) {
-          console.warn('No form object provided');
-        }
-  
-        // If the form is a string, then load it first and then try again.
-        if (typeof form === 'string') {
-          (new Formio(form)).loadForm().then(function (formObj) {
-            formObj.src = form;
-            window.setForm(formObj, submission, options);
+    <div class="grid--break-col block__primary">
+        <div id="preform"></div>
+        <div id="formio"></div>
+        <script type="text/javascript">
+          window.seamless.connect({
+            container: 'div.main',
+            allowStyleInjection: true
           });
-          return;
-        }
-  
-        options.show = {};
-        options.hide = {};
-        FormioUtils.eachComponent(form.components, function (component) {
-          if (component.tags && component.tags.length) {
-            if (component.tags.includes('viewer:show')) {
-              options.show[component.key] = true;
+          var mainElem = document.getElementById('main');
+          var preFormElem = document.getElementById('preform');
+          var loader = document.getElementById('loader');
+          var formioElem = document.getElementById("formio");
+          var titleElem = document.getElementById("form-title");
+          preFormElem.innerHTML = loader.innerHTML;
+      
+          window.setForm = function (form, submission, options) {
+            preFormElem.innerHTML = loader.innerHTML;
+            options = options || {};
+            if (!form) {
+              console.warn('No form object provided');
             }
-            if (component.tags.includes('viewer:hide')) {
-              options.hide[component.key] = true;
+      
+            // If the form is a string, then load it first and then try again.
+            if (typeof form === 'string') {
+              (new Formio(form)).loadForm().then(function (formObj) {
+                formObj.src = form;
+                window.setForm(formObj, submission, options);
+              });
+              return;
             }
-          }
-        });
-  
-        return Formio.createForm(formioElem, form, options).then(function (instance) {
-          // Remove the entire preform element.
-          mainElem.removeChild(preFormElem);
-  
-          // Set the source of the form if it is provided.
-          if (form.src) {
-            instance.url = form.src;
-            instance.nosubmit = false;
-          }
-  
-          if (titleElem) {
-            titleElem.innerHTML = instance.form.title;
-          }
-          if (!submission) {
-            return instance;
-          }
-  
-          return instance.setSubmission(submission).then(function () {
-            instance.redraw();
-            instance.checkData(instance.data, {
-              noValidate: true
+      
+            options.show = {};
+            options.hide = {};
+            FormioUtils.eachComponent(form.components, function (component) {
+              if (component.tags && component.tags.length) {
+                if (component.tags.includes('viewer:show')) {
+                  options.show[component.key] = true;
+                }
+                if (component.tags.includes('viewer:hide')) {
+                  options.hide[component.key] = true;
+                }
+              }
             });
-            return instance;
-          });
-        });
-      };
-  
-      if (src) {
-        window.setForm(src);
-      } else {
-        preFormElem.innerHTML = document.getElementById('srcform').innerHTML;
-        var srcBtn = document.getElementById('setsrc');
-        var btnIcon = document.getElementById('btnicon');
-        var formSrcElem = document.getElementById('formsrc');
-        srcBtn.addEventListener('click', function (event) {
-          event.preventDefault();
-          if (!formSrcElem.value) {
-            alert('You must provide a Form Embed URL');
-            return;
+      
+            return Formio.createForm(formioElem, form, options).then(function (instance) {
+              // Remove the entire preform element.
+              mainElem.removeChild(preFormElem);
+      
+              // Set the source of the form if it is provided.
+              if (form.src) {
+                instance.url = form.src;
+                instance.nosubmit = false;
+              }
+      
+              if (titleElem) {
+                titleElem.innerHTML = instance.form.title;
+              }
+              if (!submission) {
+                return instance;
+              }
+      
+              return instance.setSubmission(submission).then(function () {
+                instance.redraw();
+                instance.checkData(instance.data, {
+                  noValidate: true
+                });
+                return instance;
+              });
+            });
+          };
+      
+          if (src) {
+            window.setForm(src);
+          } else {
+            preFormElem.innerHTML = document.getElementById('srcform').innerHTML;
+            var srcBtn = document.getElementById('setsrc');
+            var btnIcon = document.getElementById('btnicon');
+            var formSrcElem = document.getElementById('formsrc');
+            srcBtn.addEventListener('click', function (event) {
+              event.preventDefault();
+              if (!formSrcElem.value) {
+                alert('You must provide a Form Embed URL');
+                return;
+              }
+      
+              btnIcon.setAttribute('class', 'glyphicon glyphicon-refresh glyphicon-spin');
+              window.setForm(formSrcElem.value);
+            });
           }
-  
-          btnIcon.setAttribute('class', 'glyphicon glyphicon-refresh glyphicon-spin');
-          window.setForm(formSrcElem.value);
-        });
-      }
-  
+        </script>
+    </div>
+    <script type="text/javascript">
       if (!query.hasOwnProperty('branding') || parseInt(query.branding, 10)) {
         document.write(document.getElementById('branding').innerHTML);
       }
