@@ -4,7 +4,111 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="viewport" content="width=device-width">
-    <script id="header" type="text/template"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" id="form-title"><img src="assets/logo.png" style="display: inline-block; height: 1.3em;" /> Form Viewer</a></div></div></nav></script>
+    <script id="header" type="text/template">
+      <div class="mobile-header" id="mobileHeader">
+        <div class="mobile-menu js-mobile-menu" role="navigation" aria-label="Main menu">
+          <!-- root ul mobileMenu -->
+          <ul class="mobile-menu__menu" id="mobileMenu" role="menubar">
+            <ng-container *ngFor="let i of headerObj">
+              <ng-template [ngIf]="i.submenu" [ngIfElse]="notsubmenu">
+                <li class="mobile-menu__item" role="menuitem" aria-haspopup="true">
+                  <a class="mobile-menu__submenu-sibling" href="{{ i.url }}">{{ i.name }}</a>
+                  <!--root ul subMenu -->
+                  <ul class="mobile-menu__submenu" data-name="i.name " role="menu">
+                    <li *ngFor="let j of i.submenu" class="mobile-menu__submenu-item" role="menuitem" aria-haspopup="true">
+                      <a href="{{ j.url }}">{{ j.name }}</a>
+                    </li>
+                    <li class="mobile-menu__back">
+                      <a class="mobile-menu__back-button" data-name="i.name">Back</a>
+                    </li>
+                  </ul>
+                </li>
+              </ng-template>
+              <ng-template #notsubmenu>
+                <!-- root li mobileMenu -->
+                <li class="mobile-menu__item" role="menuitem" aria-haspopup="true">
+                  <a href="{{ i.url }}">{{ i.name }}</a>
+                </li>
+              </ng-template>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+      <!-- header -->
+      <header class="hidden-print header block__secondary grid__12-col grid--break-col">
+        <div class="header__top">
+          <a class="mobile-menu__trigger" aria-controls="mobileMenu" aria-expanded="false">
+          </a>
+          <div class="header__logo">
+            <a href="https://www.service.nsw.gov.au" title="Go to Service NSW homepage">
+              <img src="https://www.service.nsw.gov.au/sites/all/themes/custom/snsw_theme/logo.png" alt="Service NSW" />
+            </a>
+          </div>
+          <div class="header__nav">
+            <div class="main-menu js-nav__aria-nav" role="navigation" aria-label="Main menu">
+              <ul role="menubar">
+                <li *ngFor="let i of headerObj" role="menuitem" [ngClass]="i.submenu ? 'has-children menu-item' : 'menu-item'">
+                  <ng-template [ngIf]="i.name == 'Log out'" [ngIfElse]="notlogout">
+                    <a class="pointer" (click)="showLogout(true)">{{ i.name }}</a>
+                  </ng-template>
+                  <ng-template #notlogout>
+                    <a href="{{ i.url }}">{{ i.name }}</a>
+                  </ng-template>
+                  <ul *ngIf=i.submenu class="nav-dropdown" role="menu">
+                    <li *ngFor="let j of i.submenu" role="menuitem">
+                      <a href="{{ j.url }}">{{ j.name }}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <form ngNoForm class="header__bottom" action="https://www.service.nsw.gov.au/search-results" method="get">
+          <div class="header__search">
+            <div class="search-bar">
+              <label for="edit-contains">Search Service NSW</label>
+              <input type="text" class="search-bar__input" name="contains" id="edit-contains" placeholder="Start your search here..."/>
+              <button class="search-bar__button" type="submit" role="button">Search</button>
+            </div>
+          </div>
+      
+          <div class="header__locate-us">
+            <a href="https://www.service.nsw.gov.au/service-centre" target="_self" role="button">
+                  <span>
+                      <span class="icon"></span>
+                      <span class="content">Locate us</span>
+                  </span>
+            </a>
+          </div>
+        </form>
+      </header>
+      <!-- logout modal -->
+      <div [ngClass]="showLogoutModal ? 'modal__container modal--is-open' : 'modal__container modal--is-closed'" role="dialog" tabindex="-1">
+        <div class="modal modal--small" role="document">
+          <div class="modal__title">Log out</div>
+          <div class="modal__content">
+            <div class="body">
+              <div class="form__item cCoa_formGroup">
+                <div class="">
+                  Are you sure you want to log out? You will lose any unsaved changes.
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal__actions">
+            <a class="form__primary-action form__primary-action button--secondary" href="{{ logoutURL }}" role="button">
+                      <span>
+                          <span class="icon"></span>
+                          <span class="content">Log out</span>
+                      </span>
+            </a>
+            <button (click)="showLogout(false)" class="form__primary-action form__secondary-action button--primary" type="button" role="button">Cancel</button>
+          </div>
+        </div>
+      </div>      
+    </script>
     <script id="branding" type="text/template">
       <div id="servicensw_embed_footer">
         <footer class="page-footer">
