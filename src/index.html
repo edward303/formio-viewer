@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <title></title>
   <meta name="viewport" content="width=device-width">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <script id="header" type="text/template">
     <header class="hidden-print header block__secondary grid__12-col grid--break-col">
       <div class="header__top">
         <a aria-controls="mobileMenu" aria-expanded="false" class="mobile-menu__trigger">
         </a>
         <div class="header__logo">
-          <a href="/" title="Go to Service NSW homepage">
+          <a href="https://www.service.nsw.gov.au" title="Go to Service NSW homepage">
             <img alt="Service NSW" src="https://www.service.nsw.gov.au/sites/all/themes/custom/snsw_theme/logo.png">
           </a>
         </div>
@@ -243,9 +243,9 @@
     </div>
   </script>
   <script id="srcform" type="text/template">
-    <div class="block__primary src-form">
+    <div class="src-form">
       <div class="form-group">
-        <label for="formsrc">FormIO Embed URL</label>
+        <label for="formsrc">Embed URL</label>
         <input type="text" class="form-control" id="formsrc" name="formsrc" placeholder="https://examples.form.io/example">
       </div>
       <button type="submit" class="btn btn-primary" id="setsrc">
@@ -376,6 +376,10 @@
       animation: spin 1000ms infinite linear;
     }
 
+    .footer {
+      margin-bottom: 0;
+    }
+
     @-webkit-keyframes spin {
       0% {
         -webkit-transform: rotate(0deg);
@@ -503,7 +507,7 @@
                 return;
               }
       
-              btnIcon.setAttribute('class', 'glyphicon glyphicon-refresh glyphicon-spin');
+              // btnIcon.setAttribute('class', 'glyphicon glyphicon-refresh glyphicon-spin');
               window.setForm(formSrcElem.value);
             });
           }
