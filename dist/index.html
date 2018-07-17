@@ -1,184 +1,240 @@
-<!doctype html><html class="no-js"><head><meta charset="utf-8"><title></title><meta name="viewport" content="width=device-width"><script id="header" type="text/template"><div class="mobile-header" id="mobileHeader">
-        <div class="mobile-menu js-mobile-menu" role="navigation" aria-label="Main menu">
-          <!-- root ul mobileMenu -->
-          <ul class="mobile-menu__menu" id="mobileMenu" role="menubar">
-            <ng-container *ngFor="let i of headerObj">
-              <ng-template [ngIf]="i.submenu" [ngIfElse]="notsubmenu">
-                <li class="mobile-menu__item" role="menuitem" aria-haspopup="true">
-                  <a class="mobile-menu__submenu-sibling" href="{{ i.url }}">{{ i.name }}</a>
-                  <!--root ul subMenu -->
-                  <ul class="mobile-menu__submenu" data-name="i.name " role="menu">
-                    <li *ngFor="let j of i.submenu" class="mobile-menu__submenu-item" role="menuitem" aria-haspopup="true">
-                      <a href="{{ j.url }}">{{ j.name }}</a>
-                    </li>
-                    <li class="mobile-menu__back">
-                      <a class="mobile-menu__back-button" data-name="i.name">Back</a>
-                    </li>
-                  </ul>
-                </li>
-              </ng-template>
-              <ng-template #notsubmenu>
-                <!-- root li mobileMenu -->
-                <li class="mobile-menu__item" role="menuitem" aria-haspopup="true">
-                  <a href="{{ i.url }}">{{ i.name }}</a>
-                </li>
-              </ng-template>
-            </ng-container>
-          </ul>
+<!doctype html><html class="no-js"><head><meta charset="utf-8"><title></title><meta name="viewport" content="width=device-width"><script id="header" type="text/template"><header class="hidden-print header block__secondary grid__12-col grid--break-col">
+      <div class="header__top">
+        <a aria-controls="mobileMenu" aria-expanded="false" class="mobile-menu__trigger">
+        </a>
+        <div class="header__logo">
+          <a href="/" title="Go to Service NSW homepage">
+            <img alt="Service NSW" src="https://www.service.nsw.gov.au/sites/all/themes/custom/snsw_theme/logo.png">
+          </a>
+        </div>
+        <div class="header__nav">
+          <div aria-label="Main menu" class="main-menu js-nav__aria-nav" role="navigation">
+            <ul role="menubar">
+              <li role="menuitem" class="has-children menu-item" aria-haspopup="true" tabindex="0">
+                <a href="https://www.service.nsw.gov.au/services">Browse Services</a>
+                <ul class="nav-dropdown" role="menu" aria-hidden="true">
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/business-trade">Business &amp; Trade</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/culture-sport-recreation">Culture, Sport &amp; Recreation</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/education-training">Education &amp; Training</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/emergencies-safety">Emergencies &amp; Safety</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/employment-jobs">Employment &amp; Jobs</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/environment-land-water">Environment, Land &amp; Water</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/government">Government</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/health-wellbeing">Health &amp; Wellbeing</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/housing-property">Housing &amp; Property</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/legal-information-services">Legal Information &amp; Services</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/life-events">Life Events</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/category/transport">Transport</a>
+                  </li>
+                </ul>
+              </li>
+              <li role="menuitem" class="menu-item" tabindex="0">
+
+                <a href="https://www.service.nsw.gov.au/nswgovdirectory">NSW Gov Directory</a>
+
+
+
+              </li>
+              <li role="menuitem" class="has-children menu-item" aria-haspopup="true" tabindex="0">
+
+                <a href="https://www.service.nsw.gov.au/about-us">About Us</a>
+
+
+                <ul class="nav-dropdown" role="menu" aria-hidden="true">
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/about-us/our-organisation">Our organisation</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/about-us/our-leadership-team">Our leadership team</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/about-us/customer-advisory-board">Our Customer Advisory Board</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/about-us/our-customers">Our customers</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/about-us/our-community">Our community</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/service-nsw-centres">Service NSW centres</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/news">News &amp; Updates</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/contact-us">Contact us &amp; feedback</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/customer-complaints">Customer complaints</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/privacy">Privacy policy</a>
+                  </li>
+                  <li role="menuitem" tabindex="-1">
+                    <a href="https://www.service.nsw.gov.au/mobile-app">Mobile app</a>
+                  </li>
+                </ul>
+              </li>
+              <li role="menuitem" class="menu-item" tabindex="0">
+
+                <a href="https://my.service.nsw.gov.au/MyServiceNSW/PersonalDashboard">My Account</a>
+
+
+
+              </li>
+              <li role="menuitem" class="menu-item" tabindex="0">
+
+                <a class="pointer">Log out</a>
+
+
+
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <!-- header -->
-      <header class="hidden-print header block__secondary grid__12-col grid--break-col">
-        <div class="header__top">
-          <a class="mobile-menu__trigger" aria-controls="mobileMenu" aria-expanded="false">
+      <form action="https://www.service.nsw.gov.au/search-results" class="header__bottom" method="get" ngnoform="">
+        <div class="header__search">
+          <div class="search-bar">
+            <label for="edit-contains">Search Service NSW</label>
+            <input class="search-bar__input" id="edit-contains" name="contains" placeholder="Start your search here..." type="text">
+            <button class="search-bar__button" role="button" type="submit">Search</button>
+          </div>
+        </div>
+
+        <div class="header__locate-us">
+          <a href="https://www.service.nsw.gov.au/service-centre" role="button" target="_self">
+            <span _ngcontent-c0="">
+              <span class="icon"></span>
+              <span class="content">Locate us</span>
+            </span>
           </a>
-          <div class="header__logo">
-            <a href="https://www.service.nsw.gov.au" title="Go to Service NSW homepage">
-              <img src="https://www.service.nsw.gov.au/sites/all/themes/custom/snsw_theme/logo.png" alt="Service NSW" />
-            </a>
-          </div>
-          <div class="header__nav">
-            <div class="main-menu js-nav__aria-nav" role="navigation" aria-label="Main menu">
-              <ul role="menubar">
-                <li *ngFor="let i of headerObj" role="menuitem" [ngClass]="i.submenu ? 'has-children menu-item' : 'menu-item'">
-                  <ng-template [ngIf]="i.name == 'Log out'" [ngIfElse]="notlogout">
-                    <a class="pointer" (click)="showLogout(true)">{{ i.name }}</a>
-                  </ng-template>
-                  <ng-template #notlogout>
-                    <a href="{{ i.url }}">{{ i.name }}</a>
-                  </ng-template>
-                  <ul *ngIf=i.submenu class="nav-dropdown" role="menu">
-                    <li *ngFor="let j of i.submenu" role="menuitem">
-                      <a href="{{ j.url }}">{{ j.name }}</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
-        <form ngNoForm class="header__bottom" action="https://www.service.nsw.gov.au/search-results" method="get">
-          <div class="header__search">
-            <div class="search-bar">
-              <label for="edit-contains">Search Service NSW</label>
-              <input type="text" class="search-bar__input" name="contains" id="edit-contains" placeholder="Start your search here..."/>
-              <button class="search-bar__button" type="submit" role="button">Search</button>
+      </form>
+    </header></script><script id="branding" type="text/template"><div id="servicensw_embed_footer">
+      <footer class="page-footer">
+        <footer class="global-footer footer block__secondary grid__12-col grid--break-col" role="contentinfo">
+          <div class="panel-pane pane-block pane-snsw-global-footer-footer-buttons">
+            <div class="pane-content">
+              <div class="footer__top">
+                <ul class="footer-btn footer__buttons">
+                  <li class="footer-btn-news">
+                    <a class="footer__button-news" href="https://www.service.nsw.gov.au/news">
+                      <span>News &amp; Updates</span>
+                    </a>
+                  </li>
+                  <li class="footer-btn-languages">
+                    <a class="footer__button-languages" href="https://www.service.nsw.gov.au/welcome-service-nsw">
+                      <span>Other Languages</span>
+                    </a>
+                  </li>
+                  <li class="footer-btn-apps">
+                    <a class="footer__button-apps" href="https://www.service.nsw.gov.au/mobile-app">
+                      <span>Mobile Apps</span>
+                    </a>
+                  </li>
+                  <li class="footer-btn-contact">
+                    <a class="footer__button-contact" href="https://www.service.nsw.gov.au/contact-us" id="contact-link">
+                      <span>Contact Us
+                        <br>13 77 88</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
-      
-          <div class="header__locate-us">
-            <a href="https://www.service.nsw.gov.au/service-centre" target="_self" role="button">
-                  <span>
-                      <span class="icon"></span>
-                      <span class="content">Locate us</span>
-                  </span>
-            </a>
-          </div>
-        </form>
-      </header>
-      <!-- logout modal -->
-      <div [ngClass]="showLogoutModal ? 'modal__container modal--is-open' : 'modal__container modal--is-closed'" role="dialog" tabindex="-1">
-        <div class="modal modal--small" role="document">
-          <div class="modal__title">Log out</div>
-          <div class="modal__content">
-            <div class="body">
-              <div class="form__item cCoa_formGroup">
-                <div class="">
-                  Are you sure you want to log out? You will lose any unsaved changes.
-                </div>
-                <div></div>
+          <div class="panel-pane pane-block pane-menu-site-info-links drop-menu footer__nav js-drop-menu-drupal drop-menu--closed">
+            <h2 class="pane-title drop-menu__title" role="heading" aria-level="2">
+              <span class="drop-menu__title-handle">Expand </span>
+              Website Information
+            </h2>
+            <div class="pane-content drop-menu__content">
+              <div class="nav--footer">
+                <ul class="menu">
+                  <li class="first leaf">
+                    <a href="https://www.service.nsw.gov.au/accessibility">Accessibility</a>
+                  </li>
+                  <li class="leaf">
+                    <a href="https://www.service.nsw.gov.au/privacy">Privacy</a>
+                  </li>
+                  <li class="leaf">
+                    <a href="https://www.service.nsw.gov.au/terms-use" title="These are the Terms of use for digital services">Terms of use</a>
+                  </li>
+                  <li class="leaf">
+                    <a href="https://www.service.nsw.gov.au/copyright-and-disclaimer" title="Copyright information about this website">Copyright and disclaimer
+                    </a>
+                  </li>
+                  <li class="leaf">
+                    <a href="https://www.service.nsw.gov.au/accessing-information">Accessing information
+                    </a>
+                  </li>
+                  <li class="last leaf">
+                    <a href="https://www.service.nsw.gov.au/sitemap" title="Service NSW sitemap">Sitemap</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div class="modal__actions">
-            <a class="form__primary-action form__primary-action button--secondary" href="{{ logoutURL }}" role="button">
-                      <span>
-                          <span class="icon"></span>
-                          <span class="content">Log out</span>
-                      </span>
-            </a>
-            <button (click)="showLogout(false)" class="form__primary-action form__secondary-action button--primary" type="button" role="button">Cancel</button>
+          <div class="panel-pane pane-block pane-snsw-social-social-links">
+            <div class="pane-content">
+              <div class="footer__social-links">
+                <ul class="social-links">
+                  <li>
+                    <a class="social-links__nswgov" href="http://nsw.gov.au">nsw.gov.au</a>
+                  </li>
+                  <li>
+                    <a class="social-links__facebook" href="https://www.facebook.com/pages/Service-NSW/543365579058368">Facebook</a>
+                  </li>
+                  <li>
+                    <a class="social-links__twitter" href="https://twitter.com/ServiceNSW">Twitter</a>
+                  </li>
+                  <li>
+                    <a class="social-links__linkedin" href="https://au.linkedin.com/company/servicensw">Linkedin</a>
+                  </li>
+                  <li>
+                    <a class="social-links__instagram" href="http://instagram.com/servicensw?ref=badge">Instagram</a>
+                  </li>
+                  <li>
+                    <a class="social-links__youtube" href="https://www.youtube.com/channel/UCpFpdQqKphbZ5xiLV0nuwdQ">Youtube</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div></script><script id="branding" type="text/template"><div id="servicensw_embed_footer">
-        <footer class="page-footer">
-          <footer class="global-footer footer block__secondary grid__12-col grid--break-col" role="contentinfo">
-            <div class="panel-pane pane-block pane-snsw-global-footer-footer-buttons">
-              <div class="pane-content">
-                <div class="footer__top">
-                  <ul class="footer-btn footer__buttons">
-                    <li class="footer-btn-news">
-                      <a class="footer__button-news" href="https://www.service.nsw.gov.au/news"><span>News &amp; Updates</span></a>
-                    </li>
-                    <li class="footer-btn-languages">
-                      <a class="footer__button-languages"
-                         href="https://www.service.nsw.gov.au/welcome-service-nsw"><span>Other Languages</span></a>
-                    </li>
-                    <li class="footer-btn-apps">
-                      <a class="footer__button-apps" href="https://www.service.nsw.gov.au/mobile-app"><span>Mobile Apps</span></a>
-                    </li>
-                    <li class="footer-btn-contact">
-                      <a class="footer__button-contact" href="https://www.service.nsw.gov.au/contact-us"
-                         id="contact-link"><span>Contact Us<br>13 77 88</span></a>
-                    </li>
-                  </ul>
-                </div>
-      
-              </div>
-            </div>
-            <div class="panel-pane pane-block pane-menu-site-info-links drop-menu footer__nav js-drop-menu-drupal drop-menu--closed">
-              <h2 class="pane-title drop-menu__title" role="heading" aria-level="2">
-                <span class="drop-menu__title-handle"  >Expand </span >
-                  Website Information
-                </h2>
-              <div class="pane-content drop-menu__content">
-                <div class="nav--footer">
-                  <ul class="menu">
-                    <li class="first leaf"><a
-                      href="https://www.service.nsw.gov.au/accessibility">Accessibility</a></li>
-                    <li class="leaf"><a href="https://www.service.nsw.gov.au/privacy">Privacy</a></li>
-                    <li class="leaf"><a href="https://www.service.nsw.gov.au/terms-use"
-                                        title="These are the Terms of use for digital services">Terms of use</a>
-                    </li>
-                    <li class="leaf"><a href="https://www.service.nsw.gov.au/copyright-and-disclaimer"
-                                        title="Copyright information about this website">Copyright and
-                      disclaimer</a></li>
-                    <li class="leaf"><a href="https://www.service.nsw.gov.au/accessing-information">Accessing
-                      information</a></li>
-                    <li class="last leaf"><a href="https://www.service.nsw.gov.au/sitemap"
-                                             title="Service NSW sitemap">Sitemap</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="panel-pane pane-block pane-snsw-social-social-links">
-              <div class="pane-content">
-                <div class="footer__social-links">
-                  <ul class="social-links">
-                    <li>
-                      <a class="social-links__nswgov" href="http://nsw.gov.au">nsw.gov.au</a>
-                    </li>
-                    <li>
-                      <a class="social-links__facebook"
-                         href="https://www.facebook.com/pages/Service-NSW/543365579058368">Facebook</a>
-                    </li>
-                    <li>
-                      <a class="social-links__twitter" href="https://twitter.com/ServiceNSW">Twitter</a>
-                    </li>
-                    <li>
-                      <a class="social-links__linkedin" href="https://au.linkedin.com/company/servicensw">Linkedin</a>
-                    </li>
-                    <li>
-                      <a class="social-links__instagram" href="http://instagram.com/servicensw?ref=badge">Instagram</a>
-                    </li>
-                    <li>
-                      <a class="social-links__youtube"
-                         href="https://www.youtube.com/channel/UCpFpdQqKphbZ5xiLV0nuwdQ">Youtube</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
         </footer>
-      </div></script><script id="srcform" type="text/template"><div class="well src-form"><div class="form-group"><label for="formsrc">Form Embed URL</label><input type="text" class="form-control" id="formsrc" name="formsrc" placeholder="https://examples.form.io/example"></div><button type="submit" class="btn btn-primary" id="setsrc"><span class="glyphicon glyphicon-check" id="btnicon"></span> Show Form</button></div></script><script id="loader" type="text/template"><div class="loader-wrapper"><div class="loader text-center"></div></div></script><script src="lib/formiojs/formio.form.min.js"></script><script src="lib/seamless/seamless.child.min.js"></script><script type="text/javascript">var query={},parts=[],paths=[],src="",hashes=location.hash.substr(1).replace(/\?/g,"&").split("&");location.search.substr(1).split("&").forEach(function(s){1<(parts=s.split("=")).length&&(query[parts[0]]=parts[1]&&decodeURIComponent(parts[1]))}),hashes.forEach(function(s){var e=s.split("=");1<e.length?query[e[0]]=e[1]&&decodeURIComponent(e[1]):0===s.indexOf("/")&&(paths=s.substr(1).split("/"))});var protocol=query.protocol||"https",host=query.host||"api.form.io",baseUrl=protocol+"://"+host;if(Formio.setBaseUrl(baseUrl),query.src&&(src=query.src),1<paths.length){var projectUrl=baseUrl+"/"+paths[0];Formio.setProjectUrl(projectUrl),query.src||(src=projectUrl+"/"+paths[1],3<paths.length&&"submission"===paths[2]&&(src+="/submission/"+paths[3]))}if(query.token&&(localStorage.setItem("formioToken",query.token),localStorage.removeItem("formioAppUser"),localStorage.removeItem("formioUser")),query.theme){var cssLink='<link rel="stylesheet" href="lib/bootswatch/';cssLink+=query.theme,cssLink+='/bootstrap.min.css" />',document.write(cssLink)}else document.write('<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />')</script><link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="//cloud.typography.com/6161932/713846/css/fonts.css"><link rel="stylesheet" href="lib/formiojs/formio.form.min.css"><link rel="stylesheet" href="//styleguide.service.nsw.gov.au/latest/css/snsw.css"><style type="text/css">.page-break-after{page-break-after:always}.page-break-before{page-break-before:always;margin-top:10px}.main{margin-top:10px}.iframe.notheme{background-color:transparent}.iframe .main{margin:0;padding:0;width:100%}.iframe.hasheader .main{margin-bottom:55px}.iframe .navbar .container{margin:0;width:100%}.navbar .container .navbar-right{margin-right:0}.navbar{margin-bottom:0}.fa-spin-custom,.glyphicon-spin{-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}</style></head><body><script type="text/javascript">var bodyClass="";query.hasOwnProperty("header")&&!parseInt(query.header,10)||(document.write(document.getElementById("header").innerHTML),bodyClass+="hasheader "),query.iframe&&parseInt(query.iframe,10)&&(bodyClass+="iframe ",query.theme||(bodyClass+="notheme ")),bodyClass&&(document.body.className=bodyClass)</script><div class="container-fluid main pf" id="main"><div id="preform"></div><div id="formio"></div></div><script type="text/javascript">window.seamless.connect({container:"div.main",allowStyleInjection:!0});var mainElem=document.getElementById("main"),preFormElem=document.getElementById("preform"),loader=document.getElementById("loader"),formioElem=document.getElementById("formio"),titleElem=document.getElementById("form-title");if(preFormElem.innerHTML=loader.innerHTML,window.setForm=function(n,t,r){if(preFormElem.innerHTML=loader.innerHTML,r=r||{},n||console.warn("No form object provided"),"string"!=typeof n)return r.show={},r.hide={},FormioUtils.eachComponent(n.components,function(e){e.tags&&e.tags.length&&(e.tags.includes("viewer:show")&&(r.show[e.key]=!0),e.tags.includes("viewer:hide")&&(r.hide[e.key]=!0))}),Formio.createForm(formioElem,n,r).then(function(e){return mainElem.removeChild(preFormElem),n.src&&(e.url=n.src,e.nosubmit=!1),titleElem&&(titleElem.innerHTML=e.form.title),t?e.setSubmission(t).then(function(){return e.redraw(),e.checkData(e.data,{noValidate:!0}),e}):e});new Formio(n).loadForm().then(function(e){e.src=n,window.setForm(e,t,r)})},src)window.setForm(src);else{preFormElem.innerHTML=document.getElementById("srcform").innerHTML;var srcBtn=document.getElementById("setsrc"),btnIcon=document.getElementById("btnicon"),formSrcElem=document.getElementById("formsrc");srcBtn.addEventListener("click",function(e){e.preventDefault(),formSrcElem.value?(btnIcon.setAttribute("class","glyphicon glyphicon-refresh glyphicon-spin"),window.setForm(formSrcElem.value)):alert("You must provide a Form Embed URL")})}query.hasOwnProperty("branding")&&!parseInt(query.branding,10)||document.write(document.getElementById("branding").innerHTML)</script></body></html>
+      </footer>
+    </div></script><script id="srcform" type="text/template"><div class="block__primary src-form">
+      <div class="form-group">
+        <label for="formsrc">FormIO Embed URL</label>
+        <input type="text" class="form-control" id="formsrc" name="formsrc" placeholder="https://examples.form.io/example">
+      </div>
+      <button type="submit" class="btn btn-primary" id="setsrc">
+        Show Form</button>
+    </div></script><script id="loader" type="text/template"><div class="loader-wrapper">
+      <div class="loader text-center"></div>
+    </div></script><script src="lib/formiojs/formio.form.min.js"></script><script src="lib/seamless/seamless.child.min.js"></script><script type="text/javascript">var query={},parts=[],paths=[],src="",hashes=location.hash.substr(1).replace(/\?/g,"&").split("&");location.search.substr(1).split("&").forEach(function(s){1<(parts=s.split("=")).length&&(query[parts[0]]=parts[1]&&decodeURIComponent(parts[1]))}),hashes.forEach(function(s){var e=s.split("=");1<e.length?query[e[0]]=e[1]&&decodeURIComponent(e[1]):0===s.indexOf("/")&&(paths=s.substr(1).split("/"))});var protocol=query.protocol||"https",host=query.host||"api.form.io",baseUrl=protocol+"://"+host;if(Formio.setBaseUrl(baseUrl),query.src&&(src=query.src),1<paths.length){var projectUrl=baseUrl+"/"+paths[0];Formio.setProjectUrl(projectUrl),query.src||(src=projectUrl+"/"+paths[1],3<paths.length&&"submission"===paths[2]&&(src+="/submission/"+paths[3]))}if(query.token&&(localStorage.setItem("formioToken",query.token),localStorage.removeItem("formioAppUser"),localStorage.removeItem("formioUser")),query.theme){var cssLink='<link rel="stylesheet" href="lib/bootswatch/';cssLink+=query.theme,cssLink+='/bootstrap.min.css" />',document.write(cssLink)}else document.write('<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />')</script><link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="//cloud.typography.com/6161932/713846/css/fonts.css"><link rel="stylesheet" href="lib/formiojs/formio.form.min.css"><link rel="stylesheet" href="//styleguide.service.nsw.gov.au/latest/css/snsw.css"><style type="text/css">.page-break-after{page-break-after:always}.page-break-before{page-break-before:always;margin-top:10px}.main{margin-top:10px}.iframe.notheme{background-color:transparent}.iframe .main{margin:0;padding:0;width:100%}.iframe.hasheader .main{margin-bottom:55px}.iframe .navbar .container{margin:0;width:100%}.navbar .container .navbar-right{margin-right:0}.navbar{margin-bottom:0}.fa-spin-custom,.glyphicon-spin{-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}</style></head><body><script type="text/javascript">var bodyClass="";query.hasOwnProperty("header")&&!parseInt(query.header,10)||(document.write(document.getElementById("header").innerHTML),bodyClass+="hasheader "),query.iframe&&parseInt(query.iframe,10)&&(bodyClass+="iframe ",query.theme||(bodyClass+="notheme ")),bodyClass&&(document.body.className=bodyClass)</script><div class="grid__container main pf" id="main"><div id="preform"></div><div id="formio"></div></div><script type="text/javascript">window.seamless.connect({container:"div.main",allowStyleInjection:!0});var mainElem=document.getElementById("main"),preFormElem=document.getElementById("preform"),loader=document.getElementById("loader"),formioElem=document.getElementById("formio"),titleElem=document.getElementById("form-title");if(preFormElem.innerHTML=loader.innerHTML,window.setForm=function(n,t,r){if(preFormElem.innerHTML=loader.innerHTML,r=r||{},n||console.warn("No form object provided"),"string"!=typeof n)return r.show={},r.hide={},FormioUtils.eachComponent(n.components,function(e){e.tags&&e.tags.length&&(e.tags.includes("viewer:show")&&(r.show[e.key]=!0),e.tags.includes("viewer:hide")&&(r.hide[e.key]=!0))}),Formio.createForm(formioElem,n,r).then(function(e){return mainElem.removeChild(preFormElem),n.src&&(e.url=n.src,e.nosubmit=!1),titleElem&&(titleElem.innerHTML=e.form.title),t?e.setSubmission(t).then(function(){return e.redraw(),e.checkData(e.data,{noValidate:!0}),e}):e});new Formio(n).loadForm().then(function(e){e.src=n,window.setForm(e,t,r)})},src)window.setForm(src);else{preFormElem.innerHTML=document.getElementById("srcform").innerHTML;var srcBtn=document.getElementById("setsrc"),btnIcon=document.getElementById("btnicon"),formSrcElem=document.getElementById("formsrc");srcBtn.addEventListener("click",function(e){e.preventDefault(),formSrcElem.value?(btnIcon.setAttribute("class","glyphicon glyphicon-refresh glyphicon-spin"),window.setForm(formSrcElem.value)):alert("You must provide a Form Embed URL")})}query.hasOwnProperty("branding")&&!parseInt(query.branding,10)||document.write(document.getElementById("branding").innerHTML)</script></body></html>
