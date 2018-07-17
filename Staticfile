@@ -1,0 +1,3 @@
+root: dist
+gzip: on
+force_https: true

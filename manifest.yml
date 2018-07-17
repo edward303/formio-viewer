@@ -1,0 +1,11 @@
+---
+applications:
+- name: formio-viewer
+  memory: 1000M
+  instances: 1
+  routes:
+    - route: formio.apps.pcf-ext.testservicensw.net
+  env:
+    BUILD_ENV: ((build_env))
+    DEPLOY_ENV: ((deploy_env))
+    OPTIMIZE_MEMORY: "true"
