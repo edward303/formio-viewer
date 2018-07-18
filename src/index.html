@@ -424,9 +424,21 @@
       }
     </script>
     <div class="grid--break-col block__primary" id="main">
+      <div class="breadcrumb">
+        <ul>
+          <li>
+            <a href="https://www.service.nsw.gov.au">Home</a>
+          </li>
+          <li>
+            <a href="https://www.service.nsw.gov.au/category/apply-order-book">Apply, Order &amp; Book</a>
+          </li>
+          <li id="form-title-breadcrumb"></li>
+        </ul>
+      </div>
       <div id="preform"></div>
       <div id="formio" class="grid__8-col">
         <h1 class="heading--light heading--bordered mb-4" id="form-title"></h1>
+        <p><span style="color:red">*</span> indicates a required field.</p>
         <script type="text/javascript">
           window.seamless.connect({
             container: 'div.main',
@@ -437,6 +449,7 @@
           var loader = document.getElementById('loader');
           var formioElem = document.getElementById("formio");
           var titleElem = document.getElementById("form-title");
+          var breadcrumbElem = document.getElementById("form-title-breadcrumb");
           preFormElem.innerHTML = loader.innerHTML;
 
           window.setForm = function (form, submission, options) {
@@ -480,6 +493,8 @@
 
               if (titleElem) {
                 titleElem.innerHTML = instance.form.title;
+                breadcrumbElem.innerHTML = instance.form.title;
+                formioElem.insertBefore(titleElem, formioElem.childNodes[0]);
               }
               if (!submission) {
                 return instance;
