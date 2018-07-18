@@ -488,3 +488,8 @@ formio {
     color: #b81237 !important;
     font-size: 100% !important
 }
+
+.form__input-date, .form__input-text, .select-menu, .timepicker, .toggle-button, [type=date], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], select {
+    max-width: 100%;
+    width: 100%;
+}
