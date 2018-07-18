@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js">
-  
+
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -402,31 +402,31 @@
         transform: rotate(359deg);
       }
     }
-
   </style>
 </head>
 
 <body>
   <div class="grid__container main pf">
-      <script type="text/javascript">
-        var bodyClass = '';
-        if (!query.hasOwnProperty('header') || parseInt(query.header, 10)) {
-          document.write(document.getElementById('header').innerHTML);
-          bodyClass += 'hasheader ';
+    <script type="text/javascript">
+      var bodyClass = '';
+      if (!query.hasOwnProperty('header') || parseInt(query.header, 10)) {
+        document.write(document.getElementById('header').innerHTML);
+        bodyClass += 'hasheader ';
+      }
+      if (query.iframe && parseInt(query.iframe, 10)) {
+        bodyClass += 'iframe ';
+        if (!query.theme) {
+          bodyClass += 'notheme ';
         }
-        if (query.iframe && parseInt(query.iframe, 10)) {
-          bodyClass += 'iframe ';
-          if (!query.theme) {
-            bodyClass += 'notheme ';
-          }
-        }
-        if (bodyClass) {
-          document.body.className = bodyClass;
-        }
-      </script>
+      }
+      if (bodyClass) {
+        document.body.className = bodyClass;
+      }
+    </script>
     <div class="grid--break-col block__primary" id="main">
-        <div id="preform"></div>
-        <div id="formio"></div>
+      <div id="preform"></div>
+      <div id="formio" class="grid__8-col">
+        <h1 class="heading--light heading--bordered mb-4" id="form-title"></h1>
         <script type="text/javascript">
           window.seamless.connect({
             container: 'div.main',
@@ -438,14 +438,14 @@
           var formioElem = document.getElementById("formio");
           var titleElem = document.getElementById("form-title");
           preFormElem.innerHTML = loader.innerHTML;
-      
+
           window.setForm = function (form, submission, options) {
             preFormElem.innerHTML = loader.innerHTML;
             options = options || {};
             if (!form) {
               console.warn('No form object provided');
             }
-      
+
             // If the form is a string, then load it first and then try again.
             if (typeof form === 'string') {
               (new Formio(form)).loadForm().then(function (formObj) {
@@ -454,7 +454,7 @@
               });
               return;
             }
-      
+
             options.show = {};
             options.hide = {};
             FormioUtils.eachComponent(form.components, function (component) {
@@ -467,24 +467,24 @@
                 }
               }
             });
-      
+
             return Formio.createForm(formioElem, form, options).then(function (instance) {
               // Remove the entire preform element.
               mainElem.removeChild(preFormElem);
-      
+
               // Set the source of the form if it is provided.
               if (form.src) {
                 instance.url = form.src;
                 instance.nosubmit = false;
               }
-      
+
               if (titleElem) {
                 titleElem.innerHTML = instance.form.title;
               }
               if (!submission) {
                 return instance;
               }
-      
+
               return instance.setSubmission(submission).then(function () {
                 instance.redraw();
                 instance.checkData(instance.data, {
@@ -494,7 +494,7 @@
               });
             });
           };
-      
+
           if (src) {
             window.setForm(src);
           } else {
@@ -508,12 +508,13 @@
                 alert('You must provide a Form Embed URL');
                 return;
               }
-      
+
               // btnIcon.setAttribute('class', 'glyphicon glyphicon-refresh glyphicon-spin');
               window.setForm(formSrcElem.value);
             });
           }
         </script>
+      </div>
     </div>
     <script type="text/javascript">
       if (!query.hasOwnProperty('branding') || parseInt(query.branding, 10)) {
