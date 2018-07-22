@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var del = require('del');
+
 gulp.task('clean', () => del(['dist/lib/*', 'dist/index.html']));
 gulp.task('html', () => gulp.src('./src/index.html').pipe(plugins.htmlmin({
   collapseWhitespace: true,
