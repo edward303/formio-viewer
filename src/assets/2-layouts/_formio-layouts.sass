@@ -1,26 +1,32 @@
 /* Form layout styles
 
-fieldset
+.formio-form fieldset
   padding: 0
   margin: 0
   border: 0
   min-width: 0
 
-.form-group.row
-  display: -webkit-box
-  display: -ms-flexbox
-  display: flex
+.formio-form .form-group.row
+  +prefix('display','flex',webkit ms)
 
 .formio-form
   .card-body
     padding: 0
 
 .formio-component-radio > .form-group
-    margin: 0
+  margin: 0
   
-.form-group
-    margin-top: 1.375em
-    padding-top: 0
-    padding-bottom: 0
-    margin-bottom: 1.375em
-    
+.formio-form .form-group
+  margin: 0.7em 0 1em 0
+  padding-top: 0
+  padding-bottom: 0
+
+/* Text input Layouts*/
+
+.formio-form input[type="text"], .formio-form input[type="email"], .formio-form select
+  width: 100%
+
+/* Radio Buttons Layouts */ 
+
+.formio-form .radio
+  margin-bottom: 0.45em
