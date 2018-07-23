@@ -115,4 +115,16 @@
 .formio-form .radio {
   margin-bottom: 0.45em; }
 
+.formio-choices > .form-control {
+  background-color: #f9fdff;
+  height: 2.75rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  font-family: "Gotham A", "Gotham B", Helvetica, Arial, sans-serif;
+  color: 900;
+  background-color: #fff;
+  border: 2px solid #C4D0D6;
+  border-radius: 6px; }
+
 /*# sourceMappingURL=styles.css.map */
