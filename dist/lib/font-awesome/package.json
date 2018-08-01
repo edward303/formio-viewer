@@ -2,7 +2,7 @@
   "_args": [
     [
       "font-awesome@4.7.0",
-      "/Users/andrewduarte/Desktop/Projects/Falcon/formio-viewer"
+      "/Users/sk/Code/formio-viewer"
     ]
   ],
   "_from": "font-awesome@4.7.0",
@@ -27,7 +27,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/font-awesome/-/font-awesome-4.7.0.tgz",
   "_spec": "4.7.0",
-  "_where": "/Users/andrewduarte/Desktop/Projects/Falcon/formio-viewer",
+  "_where": "/Users/sk/Code/formio-viewer",
   "author": {
     "name": "Dave Gandy",
     "email": "dave@fontawesome.io",
