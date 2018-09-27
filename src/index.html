@@ -2,13 +2,8 @@
 <html class="no-js">
 
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PMSMDFW');</script>
-<!-- End Google Tag Manager -->
+
+<script src="https://cdn-static.formisimo.com/tracking/js/tracking.js"></script>
 
   <meta charset="utf-8">
   <title></title>
@@ -268,6 +263,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="lib/formiojs/formio.form.min.js"></script>
   <script src="lib/seamless/seamless.child.min.js"></script>
   <script type="text/javascript">
+
+  //Google Tag Manager
+  function loadGTM(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  }
+  //End Google Tag Manager
+
     var query = {};
     var parts = [];
     var paths = [];
@@ -315,6 +319,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           src += '/submission/' + paths[3];
         }
       }
+      //Setup Google Tag Manager
+      var env = query.env || 'LOCAL';
+
+      var gtmStr = '';
+      switch(env){
+        case 'LOCAL':
+        case 'DEV':
+          // we don't need analytics for local and dev
+          break;
+        case 'TEST':
+          gtmStr = 'GTM-PMSMDFW';
+          break;
+        case 'UAT':
+          gtmStr = 'GTM-PMSMDFW';
+          break;
+        case 'PROD':
+          gtmStr = 'GTM-PMSMDFW';
+          break;
+      }
+
+      if(gtmStr !== ''){
+        loadGTM(window,document,'script','dataLayer',gtmStr);
+      }
     }
 
     // Allow them to provide SSO tokens to the form viewer.
@@ -337,7 +364,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="//cloud.typography.com/6161932/713846/css/fonts.css">
   <link rel="stylesheet" href="/dist/assets/styles.css">
   <link rel="stylesheet" href="lib/formiojs/formio.form.min.css" />
-  <link rel="stylesheet" href="//styleguide.service.nsw.gov.au/latest/css/snsw.css">
+  <link rel="stylesheet" href="https://styleguide.service.nsw.gov.au/latest/css/snsw.css">
   <style type="text/css">
     .page-break-after {
       page-break-after: always;
@@ -414,7 +441,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript)
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMSMDFW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
