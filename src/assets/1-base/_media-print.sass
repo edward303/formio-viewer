@@ -1,0 +1,49 @@
+@media print
+  *, ::after, ::before
+    text-shadow: none !important
+    -webkit-box-shadow: none !important
+    box-shadow: none !important
+  a:not(.btn)
+    text-decoration: underline
+  abbr[title]::after
+    content: " (" attr(title) ")"
+  pre
+    white-space: pre-wrap !important
+  blockquote, pre
+    border: 1px solid #adb5bd
+    page-break-inside: avoid
+  thead
+    display: table-header-group
+  img, tr
+    page-break-inside: avoid
+  h2, h3, p
+    orphans: 3
+    widows: 3
+  h2, h3
+    page-break-after: avoid
+  .form-group
+    page-break-inside: avoid
+  
+  @page
+    size: a3
+
+  .container, body
+    min-width: 992px !important
+  .navbar
+    display: none
+  .badge
+    border: 1px solid #242934
+  .table
+    border-collapse: collapse !important
+    td, th
+      background-color: #fff !important
+  .table-bordered
+    td, th
+      border: 1px solid #dee2e6 !important
+  .table-dark
+    color: inherit
+    tbody + tbody, td, th, thead th
+      border-color: #dee2e6
+  .table .thead-dark th
+    color: inherit
+    border-color: #dee2e6

@@ -1,91 +1,7 @@
+/* 
 
 
 
-
-@media print {
-    *,
-    ::after,
-    ::before {
-        text-shadow: none !important;
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important
-    }
-    a:not(.btn) {
-        text-decoration: underline
-    }
-    abbr[title]::after {
-        content: " (" attr(title) ")"
-    }
-    pre {
-        white-space: pre-wrap !important
-    }
-    blockquote,
-    pre {
-        border: 1px solid #adb5bd;
-        page-break-inside: avoid
-    }
-    thead {
-        display: table-header-group
-    }
-    img,
-    tr {
-        page-break-inside: avoid
-    }
-    h2,
-    h3,
-    p {
-        orphans: 3;
-        widows: 3
-    }
-    h2,
-    h3 {
-        page-break-after: avoid
-    }
-    @page {
-        size: a3
-    }
-    .container,
-    body {
-        min-width: 992px !important
-    }
-    .navbar {
-        display: none
-    }
-    .badge {
-        border: 1px solid #242934
-    }
-    .table {
-        border-collapse: collapse !important
-    }
-    .table td,
-    .table th {
-        background-color: #fff !important
-    }
-    .table-bordered td,
-    .table-bordered th {
-        border: 1px solid #dee2e6 !important
-    }
-    .table-dark {
-        color: inherit
-    }
-    .table-dark tbody+tbody,
-    .table-dark td,
-    .table-dark th,
-    .table-dark thead th {
-        border-color: #dee2e6
-    }
-    .table .thead-dark th {
-        color: inherit;
-        border-color: #dee2e6
-    }
-}
-
-fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    min-width: 0
-}
 
 legend {
     display: block;
@@ -218,11 +134,7 @@ input[type=radio]:focus {
     margin-top: 10px
 }
 
-.form-group.row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex
-}
+
 
 .form-group>.form-check.radio {
     padding-left: 0
@@ -262,24 +174,15 @@ formio {
     display: block
 }
 
-.formio-form .card-body {
-    padding: 0
-}
 
-.formio-form .formio-component-radio>.form-group {
-    margin: 0
-}
+
+
 
 .formio-form .formio-component-radio>.form-group label {
     font-weight: 400
 }
 
-.formio-form .form-group {
-    margin-top: 1.375em;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-bottom: 1.375em
-}
+
 
 .formio-form .form-group .form-control {
     max-width: 100%;
@@ -492,4 +395,4 @@ formio {
 .form__input-date, .form__input-text, .select-menu, .timepicker, .toggle-button, [type=date], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], select {
     max-width: 100%;
     width: 100%;
-}
+} */
