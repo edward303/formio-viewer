@@ -534,6 +534,13 @@
                 console.dir(errors);
               });
 
+              instance.on('render', (render) => {
+                //after rendering we want to load Formisimo
+                var runScript = document.createElement('script');
+                runScript.setAttribute('src', '//cdn-static.formisimo.com/tracking/js/tracking.js');
+                document.head.appendChild(runScript);
+              });
+
               // Remove the entire preform element.
               mainElem.removeChild(preFormElem);
               // Set the source of the form if it is provided.
@@ -589,7 +596,6 @@
     </script>
     <script> !function() { var t; if (t = window.botsify = window.botsify = window.botsify || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Botsify snippet included twice.")) : ( t.load =function(e){ var o,n;  o=document.createElement("script"); e.type="text/javscript"; o.async=!0; o.crossorigin="anonymous";o.src="https://botsify.com/web-bot/script/"+e+"/botsify.js"; n=document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(o,n); }); }(); botsify.load('0XOnfHno1ypeVnYxYBgKmK4NJwaiIkyr47FCZT3U'); </script>
   </div>
-  <script src="https://cdn-static.formisimo.com/tracking/js/tracking.js"></script>
 </body>
 
 </html>
