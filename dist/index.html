@@ -290,7 +290,7 @@
   <link rel="stylesheet" href="//cloud.typography.com/6161932/713846/css/fonts.css">
   <link rel="stylesheet" href="lib/formiojs/formio.form.min.css">
   <link rel="stylesheet" href="//styleguide.service.nsw.gov.au/latest/css/snsw.css">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="./assets/styles.css">
   <style type="text/css">
     .page-break-after {
       page-break-after: always
@@ -388,10 +388,14 @@
       </div>
       <div id="preform"></div>
       <div id="formio" class="grid__8-col">
-        <h1 class="heading--light heading--bordered mb-4" id="form-title"></h1>
+        <h1 class="heading--light heading--bordered mb-4" id="form-title">Feedback</h1>
         <p>
-          <span style="color:red">*</span> indicates a required field.</p>
-        <script type="text/javascript">
+          <!-- <span style="color:red">*</span> indicates a required field.</p> -->
+
+        <!-- This code below must be removed before commit -->
+        <script src="https://unpkg.com/formiojs@latest/dist/formio.embed.js?src=https://ffactory-api-server-test.integration-nonprod.aws.testservicensw.net/firearms-pta-local/feedback"></script><p></p>
+          
+        <!-- <script type="text/javascript">
           window.seamless.connect({
             container: "div.main",
             allowStyleInjection: !0
@@ -431,7 +435,7 @@
                 "You must provide a Form Embed URL")
             })
           }
-        </script>
+        </script> -->
       </div>
     </div>
     <script type="text/javascript">
