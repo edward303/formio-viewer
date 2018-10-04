@@ -260,6 +260,15 @@
   <script src="lib/formiojs/formio.form.min.js"></script>
   <script src="lib/seamless/seamless.child.min.js"></script>
   <script type="text/javascript">
+
+  //Google Tag Manager
+  function loadGTM(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  }
+  //End Google Tag Manager
+
     var query = {};
     var parts = [];
     var paths = [];
@@ -307,6 +316,29 @@
           src += '/submission/' + paths[3];
         }
       }
+      //Setup Google Tag Manager
+      var env = query.env || 'LOCAL';
+
+      var gtmStr = '';
+      switch(env){
+        case 'LOCAL':
+        case 'DEV':
+          // we don't need analytics for local and dev
+          break;
+        case 'TEST':
+          gtmStr = 'GTM-PMSMDFW';
+          break;
+        case 'UAT':
+          gtmStr = 'GTM-PMSMDFW';
+          break;
+        case 'PROD':
+          gtmStr = 'GTM-PMSMDFW';
+          break;
+      }
+
+      if(gtmStr !== ''){
+        loadGTM(window,document,'script','dataLayer',gtmStr);
+      }
     }
 
     // Allow them to provide SSO tokens to the form viewer.
@@ -327,7 +359,7 @@
   </script>
   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" href="//cloud.typography.com/6161932/713846/css/fonts.css">
-  <link rel="stylesheet" href="/dist/assets/styles.css">
+  <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="lib/formiojs/formio.form.min.css" />
   <link rel="stylesheet" href="//styleguide.service.nsw.gov.au/latest/css/snsw.css">
   <style type="text/css">
@@ -436,7 +468,8 @@
         </ul>
       </div>
       <div id="preform"></div>
-      <div id="formio" class="grid__8-col">
+      <div id="confirmFeedback" role="alert" class="messages messages--success mb-4">Thank you for your submission.</div>
+      <form id="formio" class="grid__8-col">
         <h1 class="heading--light heading--bordered mb-4" id="form-title"></h1>
         <p><span style="color:red">*</span> indicates a required field.</p>
         <script type="text/javascript">
@@ -482,9 +515,27 @@
             });
 
             return Formio.createForm(formioElem, form, options).then(function (instance) {
+              instance.on('submit', (submission) => {
+                console.log('The form is submitting');
+              });
+              instance.on('submitDone', (submission) => {
+                console.log('The form has been submitted successfully');
+                // Display dialog to announce the success of this submission
+                var confirmBlock = document.getElementById("confirmFeedback");
+                // Move it to be under the form title
+                confirmBlock.style.display = "block";
+                // Hide the form
+                var formBlock = document.getElementById("formio").querySelector("div");
+                document.getElementById("formio").appendChild(confirmBlock);
+                formBlock.style.display = "none";
+              });
+              instance.on('error', (errors) => {
+                console.log('Errors');
+                console.dir(errors);
+              });
+
               // Remove the entire preform element.
               mainElem.removeChild(preFormElem);
-
               // Set the source of the form if it is provided.
               if (form.src) {
                 instance.url = form.src;
@@ -529,14 +580,16 @@
             });
           }
         </script>
-      </div>
+      </form>
     </div>
     <script type="text/javascript">
       if (!query.hasOwnProperty('branding') || parseInt(query.branding, 10)) {
         document.write(document.getElementById('branding').innerHTML);
       }
     </script>
+    <script> !function() { var t; if (t = window.botsify = window.botsify = window.botsify || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Botsify snippet included twice.")) : ( t.load =function(e){ var o,n;  o=document.createElement("script"); e.type="text/javscript"; o.async=!0; o.crossorigin="anonymous";o.src="https://botsify.com/web-bot/script/"+e+"/botsify.js"; n=document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(o,n); }); }(); botsify.load('0XOnfHno1ypeVnYxYBgKmK4NJwaiIkyr47FCZT3U'); </script>
   </div>
+  <script src="https://cdn-static.formisimo.com/tracking/js/tracking.js"></script>
 </body>
 
 </html>

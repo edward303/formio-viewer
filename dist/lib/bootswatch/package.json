@@ -2,7 +2,7 @@
   "_args": [
     [
       "bootswatch@3.3.7",
-      "/Users/andrewduarte/Desktop/Projects/Falcon/formio-viewer"
+      "/Users/sk/Code/formio-viewer"
     ]
   ],
   "_from": "bootswatch@3.3.7",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/bootswatch/-/bootswatch-3.3.7.tgz",
   "_spec": "3.3.7",
-  "_where": "/Users/andrewduarte/Desktop/Projects/Falcon/formio-viewer",
+  "_where": "/Users/sk/Code/formio-viewer",
   "author": {
     "name": "Thomas Park"
   },
