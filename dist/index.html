@@ -298,6 +298,13 @@
                 console.dir(errors);
               });
 
+              instance.on('render', (render) => {
+                //after rendering we want to load Formisimo
+                var runScript = document.createElement('script');
+                runScript.setAttribute('src', '//cdn-static.formisimo.com/tracking/js/tracking.js');
+                document.head.appendChild(runScript);
+              });
+
               // Remove the entire preform element.
               mainElem.removeChild(preFormElem);
               // Set the source of the form if it is provided.
@@ -342,4 +349,4 @@
               // btnIcon.setAttribute('class', 'glyphicon glyphicon-refresh glyphicon-spin');
               window.setForm(formSrcElem.value);
             });
-          }</script></form></div><script type="text/javascript">query.hasOwnProperty("branding")&&!parseInt(query.branding,10)||document.write(document.getElementById("branding").innerHTML)</script><script>!function(){var o;if(!(o=window.botsify=window.botsify=window.botsify||[]).init)o.invoked?window.console&&console.error&&console.error("Botsify snippet included twice."):o.load=function(o){var t,e;t=document.createElement("script"),o.type="text/javscript",t.async=!0,t.crossorigin="anonymous",t.src="https://botsify.com/web-bot/script/"+o+"/botsify.js",(e=document.getElementsByTagName("script")[0]).parentNode.insertBefore(t,e)}}(),botsify.load("0XOnfHno1ypeVnYxYBgKmK4NJwaiIkyr47FCZT3U")</script></div><script src="https://cdn-static.formisimo.com/tracking/js/tracking.js"></script></body></html>
+          }</script></form></div><script type="text/javascript">query.hasOwnProperty("branding")&&!parseInt(query.branding,10)||document.write(document.getElementById("branding").innerHTML)</script><script>!function(){var o;if(!(o=window.botsify=window.botsify=window.botsify||[]).init)o.invoked?window.console&&console.error&&console.error("Botsify snippet included twice."):o.load=function(o){var t,e;t=document.createElement("script"),o.type="text/javscript",t.async=!0,t.crossorigin="anonymous",t.src="https://botsify.com/web-bot/script/"+o+"/botsify.js",(e=document.getElementsByTagName("script")[0]).parentNode.insertBefore(t,e)}}(),botsify.load("0XOnfHno1ypeVnYxYBgKmK4NJwaiIkyr47FCZT3U")</script></div></body></html>
