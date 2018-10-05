@@ -259,6 +259,7 @@
   </script>
   <script src="lib/formiojs/formio.form.min.js"></script>
   <script src="lib/seamless/seamless.child.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127036880-1"></script>
   <script type="text/javascript">
 
   //Google Tag Manager
@@ -266,6 +267,13 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
+    //Global site tag (gtag.js) - Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127036880-1');
   }
   //End Google Tag Manager
 
