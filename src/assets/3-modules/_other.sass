@@ -1,8 +1,28 @@
 .breadcrumb
   background-color: transparent
 
+// Validation Styling
+
+.has-error .field-required, .has-error .control-label
+  color: #000
+
+.alert-danger
+  background-color: $white
+  border-color: $white
+  padding: 0
+
+.alert-danger:nth-child(1)
+  background-color: #f2dede
+  border-color: #ebccd1
+  padding: 15px
+
+.help-block
+  font-size: $error
+
+.alert
+  +screen('mobile')
+    padding: 0
+
 #confirmFeedback
   display: none
   margin-top: 4em
-
-// comment
