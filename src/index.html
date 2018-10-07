@@ -6,6 +6,7 @@
   <title></title>
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <script src="//cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script id="header" type="text/template">
     <header class="hidden-print header block__secondary grid__12-col grid--break-col">
       <div class="header__top">
@@ -523,10 +524,7 @@
             });
 
             return Formio.createForm(formioElem, form, options).then(function (instance) {
-              instance.on('submit', (submission) => {
-                console.log('The form is submitting');
-              });
-              instance.on('submitDone', (submission) => {
+              instance.on('submitDone', function(submission) {
                 console.log('The form has been submitted successfully');
                 // Display dialog to announce the success of this submission
                 var confirmBlock = document.getElementById("confirmFeedback");
@@ -537,12 +535,8 @@
                 document.getElementById("formio").appendChild(confirmBlock);
                 formBlock.style.display = "none";
               });
-              instance.on('error', (errors) => {
-                console.log('Errors');
-                console.dir(errors);
-              });
 
-              instance.on('render', (render) => {
+              instance.on('render', function() {
                 //after rendering we want to load Formisimo
                 var runScript = document.createElement('script');
                 runScript.setAttribute('src', '//cdn-static.formisimo.com/tracking/js/tracking.js');
