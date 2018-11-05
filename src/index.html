@@ -263,20 +263,23 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127036880-1"></script>
   <script type="text/javascript">
 
-  //Google Tag Manager
-  function loadGTM(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //Google Tag Manager
+    function loadGTM(w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
 
-    //Global site tag (gtag.js) - Google Analytics
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      //Global site tag (gtag.js) - Google Analytics
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-    gtag('config', 'UA-127036880-1');
-  }
-  //End Google Tag Manager
+      gtag('config', 'UA-127036880-1');
+    }
+    //End Google Tag Manager
 
     var query = {};
     var parts = [];
@@ -329,7 +332,7 @@
       var env = query.env || 'LOCAL';
 
       var gtmStr = '';
-      switch(env){
+      switch (env) {
         case 'LOCAL':
         case 'DEV':
           // we don't need analytics for local and dev
@@ -345,8 +348,8 @@
           break;
       }
 
-      if(gtmStr !== ''){
-        loadGTM(window,document,'script','dataLayer',gtmStr);
+      if (gtmStr !== '') {
+        loadGTM(window, document, 'script', 'dataLayer', gtmStr);
       }
     }
 
@@ -427,6 +430,7 @@
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
       }
+
       100% {
         -webkit-transform: rotate(359deg);
         transform: rotate(359deg);
@@ -438,6 +442,7 @@
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
       }
+
       100% {
         -webkit-transform: rotate(359deg);
         transform: rotate(359deg);
@@ -524,7 +529,7 @@
             });
 
             return Formio.createForm(formioElem, form, options).then(function (instance) {
-              instance.on('submitDone', function(submission) {
+              instance.on('submitDone', function (submission) {
                 console.log('The form has been submitted successfully');
                 // Display dialog to announce the success of this submission
                 var confirmBlock = document.getElementById("confirmFeedback");
@@ -536,7 +541,7 @@
                 formBlock.style.display = "none";
               });
 
-              instance.on('render', function() {
+              instance.on('render', function () {
                 //after rendering we want to load Formisimo
                 var runScript = document.createElement('script');
                 runScript.setAttribute('src', '//cdn-static.formisimo.com/tracking/js/tracking.js');
@@ -596,7 +601,7 @@
         document.write(document.getElementById('branding').innerHTML);
       }
     </script>
-    <script> !function() { var t; if (t = window.botsify = window.botsify = window.botsify || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Botsify snippet included twice.")) : ( t.load =function(e){ var o,n;  o=document.createElement("script"); e.type="text/javscript"; o.async=!0; o.crossorigin="anonymous";o.src="https://botsify.com/web-bot/script/"+e+"/botsify.js"; n=document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(o,n); }); }(); botsify.load('0XOnfHno1ypeVnYxYBgKmK4NJwaiIkyr47FCZT3U'); </script>
+    <script> //!function() { var t; if (t = window.botsify = window.botsify = window.botsify || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Botsify snippet included twice.")) : ( t.load =function(e){ var o,n;  o=document.createElement("script"); e.type="text/javscript"; o.async=!0; o.crossorigin="anonymous";o.src="https://botsify.com/web-bot/script/"+e+"/botsify.js"; n=document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(o,n); }); }(); botsify.load('0XOnfHno1ypeVnYxYBgKmK4NJwaiIkyr47FCZT3U'); </script>
   </div>
 </body>
 
